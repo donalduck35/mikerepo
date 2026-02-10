@@ -1,0 +1,13 @@
+name: EKS Runner Lab Test
+on: 
+  workflow_dispatch: # This adds a manual "Play" button
+
+jobs:
+  check-eks:
+    runs-on: my-lab-runner # This is the "label" that points to your EKS pod
+    steps:
+      - name: Confirm Pod Identity
+        run: |
+          echo "Success! This job is running inside a pod on EKS."
+          echo "I am running on node: $(hostname)"
+          echo "Current time: $(date)"
